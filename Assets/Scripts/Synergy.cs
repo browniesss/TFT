@@ -12,4 +12,9 @@ public abstract class Synergy : MonoBehaviour
     public int synergy_Code; // 시너지 코드
 
     public abstract void Synergy_Init();
+
+    public virtual void Synergy_Battle_Init(ChampionData champ)
+    {
+
+    }
 }

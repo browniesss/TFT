@@ -656,7 +656,7 @@ GameObject:
   - component: {fileID: 5429234194763253887}
   m_Layer: 0
   m_Name: Graves_Prefab
-  m_TagString: Enemy
+  m_TagString: MyTeam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

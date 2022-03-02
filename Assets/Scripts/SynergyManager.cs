@@ -59,7 +59,6 @@ public class SynergyManager : Singleton<SynergyManager>
             {
                 if (sng.synergy_Code == synergy.synergy_Code)
                 {
-                    Debug.Log("챔프파인드실행");
                     Champ_Find(data, synergy, truth);
                 }
             }
@@ -94,7 +93,6 @@ public class SynergyManager : Singleton<SynergyManager>
                 if (truth) // 필드 진입
                 {
                     champ_List.Add(data);
-                    Debug.Log("포이치챔프추가");
                     return;
                 }
                 else // 필드에서 대기석으로
@@ -104,7 +102,6 @@ public class SynergyManager : Singleton<SynergyManager>
                         if (champ_List[k].Champion_Code == data.Champion_Code) // 같은 챔피언이 하나 더 있다면
                         {
                             champ_List.Remove(data); // 데이터만 삭제
-                            Debug.Log("포이치챔프삭제");
                             return;
                         }
                     }
@@ -117,23 +114,19 @@ public class SynergyManager : Singleton<SynergyManager>
         {
             champ_List.Add(data);
             synergy.curChamp_Count++;
-            Debug.Log("챔프 추가" + synergy.curChamp_Count);
         }
         else // 필드에서 대기석으로
         {
             champ_List.Remove(data);
             synergy.curChamp_Count--;
-            Debug.Log("챔프 삭제" + synergy.curChamp_Count);
         }
 
         int ind = 0;
         foreach (ChampionData dat in champ_List)
         {
-            Debug.Log("체크체크" + ind);
             if (dat.Champion_Code == data.Champion_Code)
             {
                 recent_AddChamp_Index = ind;
-                Debug.Log("최근번호저장" + ind);
             }
             ind++;
         }
@@ -171,9 +164,38 @@ public class SynergyManager : Singleton<SynergyManager>
         }
     }
 
+    public void Battle_Init() // 전투 시작 시 호출되는 함수
+    {
+        foreach(Synergy synergy in synergy_List) // 활성화 된 시너지들 중 
+        {
+            foreach(ChampionData champ in champ_List) // 필드 위 챔피언들이
+            {
+                foreach(Synergy champ_synergy in champ.Synergys) // 활성화 된 시너지와 같다면
+                {
+                    if (synergy.synergy_Code == champ_synergy.synergy_Code)
+                    {
+                        synergy.Synergy_Battle_Init(champ); // 전투 시작 시너지 발동
+
+                    }
+                }
+            }
+        }
+    }
+
+    public void Battle_End() // 전투 종료 시 호출되는 함수
+    {
+        foreach(ChampionData champ in champ_List)
+        {
+            champ.Champion_Info_Reset();
+        }
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F7))
-            academy.Academy_Battle_Init(champ_List[0]);
+            Battle_Init(); 
+        
+        if (Input.GetKeyDown(KeyCode.F6))
+            Battle_End();
     }
 }

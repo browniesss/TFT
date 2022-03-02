@@ -27,23 +27,30 @@ public class Academy : Synergy
         needChamp_Count[3] = 6;
         needChamp_Count[4] = 8;
 
+        init_Power[0] = 0;
         init_Power[1] = 18;
         init_Power[2] = 40;
         init_Power[3] = 50;
         init_Power[4] = 70;
 
+        add_Power[0] = 0;
         add_Power[1] = 3;
         add_Power[2] = 5;
         add_Power[3] = 10;
         add_Power[4] = 15;
     }
 
-    public void Academy_Battle_Init(ChampionData champ) // 전투 시작 시 아카데미 효과
+    public override void Synergy_Battle_Init(ChampionData champ) // 전투 시작 시 아카데미 효과
     {
+        Debug.Log("아카데미의 함수");
         champ.Damage += init_Power[synergy_Level];
         champ.Ability_Power += init_Power[synergy_Level];
+    }
 
-        Debug.Log("init_Power : " + init_Power[synergy_Level] + "level : " + synergy_Level);
+    public void Academy_Battle_Effect(ChampionData champ) // 전투 중 아카데미 효과
+    {
+        champ.Damage += add_Power[synergy_Level];
+        champ.Ability_Power += add_Power[synergy_Level]; 
     }
 
     void Update()

@@ -112,6 +112,14 @@ public abstract class ChampionData : MonoBehaviour
         Damage = Origin_Damage;
     }
 
+    public virtual void Champion_Info_Reset() // 전투 종료시 정보 초기화
+    {
+        MaxHP = Origin_MaxHP;
+        HP = Origin_MaxHP;
+        Damage = Origin_Damage;
+        Ability_Power = 100f;
+    }
+
     private Vector3 m_Offset;
     private float m_ZCoord;
     public Vector3 originalPos;

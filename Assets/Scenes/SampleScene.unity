@@ -17613,6 +17613,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1388234211273189609, guid: a7d0bcb1a13629746990f9d1f2a8f282, type: 3}
+      propertyPath: m_TagString
+      value: MyTeam
+      objectReference: {fileID: 0}
     - target: {fileID: 1731685752716915283, guid: a7d0bcb1a13629746990f9d1f2a8f282, type: 3}
       propertyPath: m_RootOrder
       value: 13

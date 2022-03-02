@@ -53,7 +53,6 @@ public class ShopManager : MonoBehaviour
             int randomIndex; // 그 코스트의 챔피언들 중 랜덤으로 뽑음
 
             randomIndex = Random.Range(0, card_Dictionary[1].Length);
-            Debug.Log(randomIndex);
 
             ShopCardInfo card = card_Dictionary[randomCost][randomIndex];
 
@@ -76,7 +75,6 @@ public class ShopManager : MonoBehaviour
         }
 
 
-        Debug.Log("tileIndex" + tileIndex);
         if (tileIndex >= 9) // 비어있는 대기석이 없다면
             return;
 
@@ -111,7 +109,6 @@ public class ShopManager : MonoBehaviour
 
         if (count == 3)
         {
-            Debug.Log("레벨업");
             foreach (ChampionData data in tempChamp_Arr)
             {
                 cur_haveChamp_List.Remove(data); // 현재 보유중 챔프 리스트에서 삭제

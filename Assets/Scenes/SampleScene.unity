@@ -1644,6 +1644,7 @@ MonoBehaviour:
   - {fileID: 8470786399242345269, guid: e11038a208e4e694e98f1e07d35f167e, type: 3}
   - {fileID: 8470786399242345269, guid: f869277a88031c245a93cbdfa1309a62, type: 3}
   - {fileID: 8470786399242345269, guid: 1753dc2c23f8c8c48a7d3262915369e3, type: 3}
+  - {fileID: 8470786399242345269, guid: c5097a46c701c0b4480a9388d0b24da0, type: 3}
   shop_Buttons:
   - {fileID: 1099933629}
   - {fileID: 1628741409}

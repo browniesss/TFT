@@ -1923,7 +1923,7 @@ GameObject:
   - component: {fileID: 4697994969923495000}
   m_Layer: 0
   m_Name: illaoi_Prefabs
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2023,7 +2023,7 @@ MonoBehaviour:
   Attack_Delay: 1
   Armor: 40
   Magic_Resistance: 40
-  Speed: 0
+  Speed: 150
   Attack_Range: 150
   Champion_Level: 0
   Champion_Code: 6

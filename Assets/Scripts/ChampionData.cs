@@ -7,8 +7,6 @@ public abstract class ChampionData : MonoBehaviour
 {
     [Header("Charatcer Status")]
     public float Origin_MaxHP; // 전투 시작 시 저장할 최대체력
-
-    public float Shield; // 보호막
     [SerializeField]
     protected float MaxHP; // 체력
     [SerializeField]

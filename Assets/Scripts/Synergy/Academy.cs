@@ -47,7 +47,7 @@ public class Academy : Synergy
         champ.Ability_Power += init_Power[synergy_Level];
     }
 
-    public override void Synergy_Skill_Act(ChampionData champ) // 전투 중 아카데미 효과
+    public void Academy_Battle_Effect(ChampionData champ) // 전투 중 아카데미 효과
     {
         champ.Damage += add_Power[synergy_Level];
         champ.Ability_Power += add_Power[synergy_Level]; 

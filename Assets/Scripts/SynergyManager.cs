@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 /* 시너지 코드 정리
 
-1 : 아카데미 2 : 봉쇄자 3 : 저격수 4 : 집행자 5 : 쌍발총
+1 : 아카데미 2 : 봉쇄자 3 : 저격수 4 : 집행자
 
 */
 
@@ -15,7 +15,6 @@ public class SynergyManager : Singleton<SynergyManager>
     public Protector protector;  // 봉쇄자
     public Sniper sniper; // 저격수
     public Enforcer enforcer; // 집행자
-    public Twinshot twinShot; // 쌍발총
 
     List<Synergy> synergy_List; // 활성화 된 시너지 리스트
     List<ChampionData> champ_List; // 현재 필드위 챔피언 리스트
@@ -45,14 +44,10 @@ public class SynergyManager : Singleton<SynergyManager>
         enforcer = new Enforcer();
         enforcer.Synergy_Init();
 
-        twinShot = new Twinshot();
-        twinShot.Synergy_Init();
-
         synergy_List.Add(academy);
         synergy_List.Add(protector);
         synergy_List.Add(sniper);
         synergy_List.Add(enforcer);
-        synergy_List.Add(twinShot);
     }
 
     public void Synergy_Find(ChampionData data, bool truth)
@@ -175,61 +170,15 @@ public class SynergyManager : Singleton<SynergyManager>
         {
             foreach (ChampionData champ in champ_List) // 필드 위 챔피언들이
             {
-                #region 3중포문안쓰기
-                //Synergy syn;
-
-                //syn = champ.Synergys.Find(x => x.synergy_Code == synergy.synergy_Code);
-
-                //if (syn.synergy_Code != 0)
+                Synergy syn = champ.Synergys.Find(x => x.synergy_Code == synergy.synergy_Code);
+                //if (synergy.synergy_Code == champ_synergy.synergy_Code)
                 //{
                 //    synergy.Synergy_Battle_Init(champ); // 전투 시작 시너지 발동
                 //}
-                #endregion
-
-                foreach (Synergy champion_synergy in champ.Synergys)
-                {
-                    if(synergy.synergy_Code == champion_synergy.synergy_Code)
-                    {
-                        synergy.Synergy_Battle_Init(champ);
-                    }
-                }
             }
         }
     }
 
-    public void Skill_Act() // 스킬 사용 시 호출되는 함수
-    {
-        foreach (Synergy synergy in synergy_List) // 활성화 된 시너지들 중 
-        {
-            foreach (ChampionData champ in champ_List) // 필드 위 챔피언들이
-            {
-                foreach (Synergy champion_synergy in champ.Synergys)
-                {
-                    if (synergy.synergy_Code == champion_synergy.synergy_Code)
-                    {
-                        synergy.Synergy_Skill_Act(champ);
-                    }
-                }
-            }
-        }
-    }
-
-    public void Attack_Act() // 평타 시 호출되는 함수
-    {
-        foreach (Synergy synergy in synergy_List) // 활성화 된 시너지들 중 
-        {
-            foreach (ChampionData champ in champ_List) // 필드 위 챔피언들이
-            {
-                foreach (Synergy champion_synergy in champ.Synergys)
-                {
-                    if (synergy.synergy_Code == champion_synergy.synergy_Code)
-                    {
-                        synergy.Synergy_Attack_Act(champ);
-                    }
-                }
-            }
-        }
-    }
 
     public void Battle_End() // 전투 종료 시 호출되는 함수
     {
@@ -246,8 +195,5 @@ public class SynergyManager : Singleton<SynergyManager>
 
         if (Input.GetKeyDown(KeyCode.F6))
             Battle_End();
-
-        if (Input.GetKeyDown(KeyCode.F5))
-            Skill_Act();
     }
 }

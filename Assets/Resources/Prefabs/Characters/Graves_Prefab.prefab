@@ -751,7 +751,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Origin_MaxHP: 750
-  Shield: 0
   MaxHP: 750
   HP: 750
   MaxMP: 100
@@ -762,7 +761,7 @@ MonoBehaviour:
   Attack_Delay: 1
   Armor: 40
   Magic_Resistance: 40
-  Speed: 300
+  Speed: 0
   Attack_Range: 150
   Champion_Level: 0
   Champion_Code: 3

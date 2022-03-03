@@ -17,4 +17,14 @@ public abstract class Synergy : MonoBehaviour
     {
 
     }
+
+    public virtual void Synergy_Skill_Act(ChampionData champ)
+    {
+
+    }
+
+    public virtual void Synergy_Attack_Act(ChampionData champ)
+    {
+
+    }
 }

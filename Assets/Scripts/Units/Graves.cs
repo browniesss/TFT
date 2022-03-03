@@ -26,7 +26,7 @@ public class Graves : ChampionData
     {
         Target_Find();
 
-        //Target_Check();
+        Target_Check();
 
         Move();
 
@@ -62,6 +62,8 @@ public class Graves : ChampionData
 
         MP += 10; // 때릴때마다 마나 10회복
 
+        SynergyManager.Instance.Attack_Act();
+
         Active_Skill();
     }
 
@@ -80,12 +82,16 @@ public class Graves : ChampionData
     }
 
     Academy academy;
+    Twinshot twinShot;
     public override void Champ_Synergy_Init()
     {
         academy = new Academy();
         academy.Synergy_Init();
 
+        twinShot = new Twinshot();
+        twinShot.Synergy_Init();
 
         Synergys.Add(academy);
+        Synergys.Add(twinShot);
     }
 }

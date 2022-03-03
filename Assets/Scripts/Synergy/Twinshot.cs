@@ -53,6 +53,7 @@ public class Twinshot : Synergy
         {
             Debug.Log("½Ö¹ßÃÑ °ø°Ý¹ßµ¿ ");
             champ.GetComponent<Animator>().Play("Attack", -1, 0f);
+            champ.twin_Shot_Check = true;
         }
     }
 

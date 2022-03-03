@@ -62,7 +62,10 @@ public class Graves : ChampionData
 
         MP += 10; // 때릴때마다 마나 10회복
 
-        SynergyManager.Instance.Attack_Act();
+        if (!twin_Shot_Check)
+            SynergyManager.Instance.Attack_Act();
+        else
+            twin_Shot_Check = false;
 
         Active_Skill();
     }

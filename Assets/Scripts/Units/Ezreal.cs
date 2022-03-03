@@ -48,7 +48,7 @@ public class Ezreal : ChampionData
 
         transform.rotation = Quaternion.LookRotation(cur_Target.transform.position - this.transform.position);
 
-        GameObject bullet = GameManager.Resource.Instantiate("Bullets/Caitlyn_Bullet", this.transform);
+        GameObject bullet = GameManager.Resource.Instantiate("Bullets/Ezreal_Bullet", this.transform);
 
         bullet.GetComponent<Bullet>().Bullet_Init(true);
         bullet.transform.position = bullet_Pos.position;
@@ -69,22 +69,7 @@ public class Ezreal : ChampionData
             //cur_Target.GetComponent<ChampionData>().Damaged(Damage * 2);
 
             animator.SetBool("isSkill", true);
-
-            GameObject go = GameObject.Instantiate(Skill_Target_Aim);
-
-            go.transform.position = new Vector3(cur_Target.transform.position.x, 10, cur_Target.transform.position.z);
-
-            Destroy(go, 2f);
         }
-    }
-
-    public GameObject Skill_Target_Aim;
-    public void Skill_Bullet_Shoot()
-    {
-        GameObject bullet = GameManager.Resource.Instantiate("Bullets/Caitlyn_Bullet", this.transform);
-
-        bullet.GetComponent<Bullet>().Bullet_Init(true);
-        bullet.transform.position = bullet_Pos.position;
     }
 
     public override void Champ_Synergy_Init()

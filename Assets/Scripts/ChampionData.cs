@@ -49,6 +49,9 @@ public abstract class ChampionData : MonoBehaviour
     [Header("Current Tile")]
     public Tile cur_Tile; // 현재 타일
 
+    [Header("Synergy Using")]
+    public bool twin_Shot_Check; // 쌍발총 연속 공격을 했는지 체크
+
     public abstract void Damaged(float damage);
 
     public abstract void Champ_Synergy_Init();

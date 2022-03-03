@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Camille : ChampionData
 {
-
-    public GameObject Skill_An = null;
-
-
     void Start()
     {
         Initialize();
@@ -26,7 +22,7 @@ public class Camille : ChampionData
     {
         Target_Find();
 
-        Target_Check();
+        //Target_Check();
 
         Move();
 
@@ -66,16 +62,10 @@ public class Camille : ChampionData
             //cur_Target.GetComponent<ChampionData>().Damaged(Damage * 2);
 
             animator.SetBool("isSkill", true);
-
-            Skill_An.SetActive(true);
         }
     }
 
-    public virtual void Skill_AnimationOff()
-    {
-        animator.SetBool("isSkill", false);
-        Skill_An.SetActive(false);
-    }
+
 
     public override void Champ_Synergy_Init()
     {

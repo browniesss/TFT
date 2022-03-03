@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Origin_MaxHP: 650
+  Shield: 0
   MaxHP: 650
   HP: 650
   MaxMP: 90
@@ -496,7 +497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fff0ae3154cc48c4ea4147da1bfe635f, type: 3}
       propertyPath: m_TagString
-      value: MyTeam
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 1132794777874286372, guid: fff0ae3154cc48c4ea4147da1bfe635f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

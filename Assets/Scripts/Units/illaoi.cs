@@ -22,7 +22,7 @@ public class illaoi : ChampionData
     {
         Target_Find();
 
-        Target_Check();
+        //Target_Check();
 
         Move();
 

@@ -6,13 +6,13 @@ public class Camille_Skill : MonoBehaviour
 {
    
 
-    public void OnTrigerEnter(Collider other)
+    public void OnTrigerStay(Collider other)
     {
         Debug.Log(other.name + "카밀한테 맞아써");
     }
 
-    //public void OnCollisionEnter(Collision collision)
-    //{
-    //    Debug.Log(collision.transform.name + "카밀한테 맞아써ㅑ");
-    //}
+    public void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.transform.name + "카밀한테 맞아써ㅑ");
+    }
 }

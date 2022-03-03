@@ -151,7 +151,7 @@ public class SynergyManager : Singleton<SynergyManager>
                     if (synergy.synergy_Level != synergy.synergy_MaxLevel)
                         synergy.synergy_Level++;
                 }
-                else if(synergy.curChamp_Count < synergy.needChamp_Count[synergy.synergy_Level])
+                else if (synergy.curChamp_Count < synergy.needChamp_Count[synergy.synergy_Level])
                 {
                     synergy.synergy_Level--;
                 }
@@ -166,25 +166,23 @@ public class SynergyManager : Singleton<SynergyManager>
 
     public void Battle_Init() // 전투 시작 시 호출되는 함수
     {
-        foreach(Synergy synergy in synergy_List) // 활성화 된 시너지들 중 
+        foreach (Synergy synergy in synergy_List) // 활성화 된 시너지들 중 
         {
-            foreach(ChampionData champ in champ_List) // 필드 위 챔피언들이
+            foreach (ChampionData champ in champ_List) // 필드 위 챔피언들이
             {
-                foreach(Synergy champ_synergy in champ.Synergys) // 활성화 된 시너지와 같다면
-                {
-                    if (synergy.synergy_Code == champ_synergy.synergy_Code)
-                    {
-                        synergy.Synergy_Battle_Init(champ); // 전투 시작 시너지 발동
-
-                    }
-                }
+                Synergy syn = champ.Synergys.Find(x => x.synergy_Code == synergy.synergy_Code);
+                //if (synergy.synergy_Code == champ_synergy.synergy_Code)
+                //{
+                //    synergy.Synergy_Battle_Init(champ); // 전투 시작 시너지 발동
+                //}
             }
         }
     }
 
+
     public void Battle_End() // 전투 종료 시 호출되는 함수
     {
-        foreach(ChampionData champ in champ_List)
+        foreach (ChampionData champ in champ_List)
         {
             champ.Champion_Info_Reset();
         }
@@ -193,8 +191,8 @@ public class SynergyManager : Singleton<SynergyManager>
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F7))
-            Battle_Init(); 
-        
+            Battle_Init();
+
         if (Input.GetKeyDown(KeyCode.F6))
             Battle_End();
     }

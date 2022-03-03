@@ -11,5 +11,8 @@ public class Camille_Skill : MonoBehaviour
         Debug.Log(other.name + "카밀한테 맞아써");
     }
 
-
+    //public void OnCollisionEnter(Collision collision)
+    //{
+    //    Debug.Log(collision.transform.name + "카밀한테 맞아써ㅑ");
+    //}
 }

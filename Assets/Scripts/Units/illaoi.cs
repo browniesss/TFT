@@ -51,6 +51,7 @@ public class illaoi : ChampionData
         Active_Skill();
     }
 
+
     void Active_Skill() // 스킬 발동
     {
         if (MP >= MaxMP) // 마나가 전부 차면

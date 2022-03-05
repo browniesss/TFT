@@ -50,7 +50,7 @@ public class Ezreal : ChampionData
 
         GameObject bullet = GameManager.Resource.Instantiate("Bullets/Ezreal_Bullet", this.transform);
 
-        bullet.GetComponent<Bullet>().Bullet_Init(true);
+        bullet.GetComponent<Bullet>().Bullet_Init(true, false) ;
         bullet.transform.position = bullet_Pos.position;
 
         MP += 10;
@@ -70,6 +70,14 @@ public class Ezreal : ChampionData
 
             animator.SetBool("isSkill", true);
         }
+    }
+
+    public void Skill_Bullet_Shoot()
+    {
+        GameObject bullet = GameManager.Resource.Instantiate("Bullets/Ezreal_Bullet", this.transform);
+
+        bullet.GetComponent<Bullet>().Bullet_Init(true, true);
+        bullet.transform.position = bullet_Pos.position;
     }
 
     public override void Champ_Synergy_Init()

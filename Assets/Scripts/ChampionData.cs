@@ -31,6 +31,8 @@ public abstract class ChampionData : MonoBehaviour
     [SerializeField]
     protected int Attack_Range; // 사정거리
 
+    public int[] Skill_Damage; // 스킬 데미지
+
     public int Champion_Level; // 챔피언 레벨(성)
     public int Champion_Code; // 챔피언 코드
 

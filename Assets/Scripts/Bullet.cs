@@ -8,25 +8,29 @@ public class Bullet : MonoBehaviour
     private ChampionData parentChampion;
     [SerializeField]
     private bool isCollision = false;
+    [SerializeField]
+    private bool isSkill = false;
 
     private bool direct_Attack; // 총알이 데미지를 주는지 안주는지 판별할 변수  true = 직접
     void Start()
     {
     }
 
-    public void Bullet_Init(bool truth)
+    public void Bullet_Init(bool truth, bool skill_truth)
     {
         direct_Attack = truth;
         isCollision = false;
+        isSkill = skill_truth;
         parentChampion = transform.parent.GetComponent<ChampionData>();
     }
 
     Vector3 bullet_Target; // 총알의 직접 타겟
-    public void Bullet_Init(bool truth, Vector3 targetPos)
+    public void Bullet_Init(bool truth, bool skill_truth, Vector3 targetPos)
     {
         bullet_Target = targetPos;
         direct_Attack = truth;
         isCollision = false;
+        isSkill = skill_truth;
         parentChampion = transform.parent.GetComponent<ChampionData>();
 
         StartCoroutine(Destroy_Coroutine());
@@ -74,7 +78,11 @@ public class Bullet : MonoBehaviour
         {
             isCollision = true;
 
-            other.gameObject.GetComponent<ChampionData>().Damaged(parentChampion.Damage);
+            if (!isSkill)
+                other.gameObject.GetComponent<ChampionData>().Damaged(parentChampion.Damage);
+            else
+                other.gameObject.GetComponent<ChampionData>().Damaged(parentChampion.
+                    Skill_Damage[parentChampion.Champion_Level]);
 
             GameManager.Resource.Destroy(this.gameObject);
         }

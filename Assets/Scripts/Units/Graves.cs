@@ -56,7 +56,7 @@ public class Graves : ChampionData
         {
             GameObject bullet = GameManager.Resource.Instantiate("Bullets/Graves_Bullet", this.transform);
 
-            bullet.GetComponent<Bullet>().Bullet_Init(false, bullet_Dir_Pos[i].position);
+            bullet.GetComponent<Bullet>().Bullet_Init(false, false, bullet_Dir_Pos[i].position);
             bullet.transform.position = bullet_Pos.position;
         }
 

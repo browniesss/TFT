@@ -36,6 +36,16 @@ public abstract class ChampionData : MonoBehaviour
     public int Champion_Level; // 챔피언 레벨(성)
     public int Champion_Code; // 챔피언 코드
 
+    public ItemInfo[] itemArr = new ItemInfo[3]; // 보유 아이템 3개까지 가능
+    public int have_Item_Count; // 보유한 아이템 수
+
+    public float item_Add_Hp; // 아이템으로 추가된 체력
+    public float item_Add_Ap; // 아이템으로 추가된 주문력
+    public float item_Add_Damage; // 아이템으로 추가된 공격력
+    public float item_Add_Attack_Delay; // 아이템으로 추가된 공격속도
+    public int item_Add_Armor; // 아이템으로 추가된 방어력
+    public int item_Add_Magic_Resistance; // 아이템으로 추가된 마법 저항력
+
     // 시너지
     public List<Synergy> Synergys = new List<Synergy>();
 
@@ -127,6 +137,7 @@ public abstract class ChampionData : MonoBehaviour
         Ability_Power = 100f;
     }
 
+    #region 마우스 드래그
     private Vector3 m_Offset;
     private float m_ZCoord;
     public Vector3 originalPos;
@@ -167,6 +178,7 @@ public abstract class ChampionData : MonoBehaviour
 
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
+    #endregion
 
     public virtual void Skill_AnimationOff()
     {

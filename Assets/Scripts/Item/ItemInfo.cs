@@ -12,6 +12,8 @@ public class ItemInfo : MonoBehaviour
     protected int item_Damage; // 아이템 추가 데미지 
     [SerializeField]
     protected int item_AP; // 아이템 추가 주문력
+    [SerializeField]
+    protected Material item_Material; // 아이템 매테리얼
 
     void Start()
     {

@@ -91,6 +91,11 @@ public abstract class ChampionData : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(cur_Target.transform.position - this.transform.position);
     }
 
+    public virtual void Item_Equip(ItemInfo item)
+    {
+
+    }
+
     protected Animator animator;
     public virtual void Target_Check() // 타겟을 체크 해주는 함수.
     {

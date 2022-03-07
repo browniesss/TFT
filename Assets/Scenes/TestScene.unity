@@ -4345,6 +4345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box_Item: {fileID: 0}
+  originalPos: {x: 0, y: 0, z: 0}
 --- !u!65 &459597245
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17913,7 +17914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6412383478499399150, guid: 6dcda751196404948832e6148aaee9e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 206.05156
+      value: 231.3
       objectReference: {fileID: 0}
     - target: {fileID: 6412383478499399150, guid: 6dcda751196404948832e6148aaee9e7, type: 3}
       propertyPath: m_LocalPosition.z

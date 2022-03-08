@@ -36,7 +36,8 @@ public class ItemBox : MonoBehaviour
 
             if(hit_Champ.have_Item_Count < 3) // 보유한 아이템이 3개 미만일 경우
             {
-
+                hit_Champ.Item_Equip(box_Item); 
+                hit_Champ.have_Item_Count++;
             }
         }
         else

@@ -65,8 +65,6 @@ public class Garen : ChampionData
         }
     }
 
-
-
     Academy academy;
     Protector protector;
     public override void Champ_Synergy_Init()

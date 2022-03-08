@@ -15,8 +15,7 @@ public abstract class ChampionData : MonoBehaviour
     protected float HP; // 체력
     [SerializeField]
     protected int MaxMP; // 마나
-    [SerializeField]
-    protected int MP; // 마나
+    public int MP; // 마나
     public float Origin_Damage; // 전투 시작 시 저장할 공격력
     public float Damage; // 전투에 이용할 공격력
     public float Ability_Power; // 주문력
@@ -93,33 +92,40 @@ public abstract class ChampionData : MonoBehaviour
 
     public virtual void Item_Equip(ItemInfo item)
     {
-        ItemInfo save_Item;
+        Debug.Log("아이템 장착");
         foreach (ItemInfo temp_item in itemList)
         {
             if (temp_item.is_Raw_Item == true)
             {
-                save_Item = temp_item;
+                ItemInfo result_Item = ItemManager.Instance.Item_Combination(temp_item, item);
+
                 itemList.Remove(temp_item);
 
-                ItemInfo result_Item = ItemManager.Instance.Item_Combination(save_Item, item);
-
                 itemList.Add(result_Item);
+
+                Item_Effect_Renew();
+                return;
             }
         }
+
+        // 여기로 왔다면 위의 foreach 문에서 return이 안됐다는 의미 - 조합 아이템을 안들고 있었음
+        itemList.Add(item);
+
+        Item_Effect_Renew();
     }
 
     void Item_Effect_Renew()
     {
-        item_Add_Hp                 = 0f;
-        item_Add_Ap                 = 0f;
-        item_Add_Damage                 = 0f;
-        item_Add_Attack_Delay                = 0f;
-        item_Add_Armor              = 0;
-        item_Add_Magic_Resistance               = 0;
+        item_Add_Hp = 0f;
+        item_Add_Ap = 0f;
+        item_Add_Damage = 0f;
+        item_Add_Attack_Delay = 0f;
+        item_Add_Armor = 0;
+        item_Add_Magic_Resistance = 0;
 
         foreach (ItemInfo item in itemList)
         {
-
+            item.Add_Status(this);
         }
     }
 

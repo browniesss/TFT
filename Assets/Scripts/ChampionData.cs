@@ -36,7 +36,7 @@ public abstract class ChampionData : MonoBehaviour
     public int Champion_Level; // 챔피언 레벨(성)
     public int Champion_Code; // 챔피언 코드
 
-    public ItemInfo[] itemArr = new ItemInfo[3]; // 보유 아이템 3개까지 가능
+    public List<ItemInfo> itemList = new List<ItemInfo>(); // 보유 아이템 3개까지 가능
     public int have_Item_Count; // 보유한 아이템 수
 
     public float item_Add_Hp; // 아이템으로 추가된 체력
@@ -93,7 +93,34 @@ public abstract class ChampionData : MonoBehaviour
 
     public virtual void Item_Equip(ItemInfo item)
     {
+        ItemInfo save_Item;
+        foreach (ItemInfo temp_item in itemList)
+        {
+            if (temp_item.is_Raw_Item == true)
+            {
+                save_Item = temp_item;
+                itemList.Remove(temp_item);
 
+                ItemInfo result_Item = ItemManager.Instance.Item_Combination(save_Item, item);
+
+                itemList.Add(result_Item);
+            }
+        }
+    }
+
+    void Item_Effect_Renew()
+    {
+        item_Add_Hp                 = 0f;
+        item_Add_Ap                 = 0f;
+        item_Add_Damage                 = 0f;
+        item_Add_Attack_Delay                = 0f;
+        item_Add_Armor              = 0;
+        item_Add_Magic_Resistance               = 0;
+
+        foreach (ItemInfo item in itemList)
+        {
+
+        }
     }
 
     protected Animator animator;

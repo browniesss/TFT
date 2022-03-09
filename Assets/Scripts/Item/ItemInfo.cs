@@ -22,10 +22,10 @@ public class ItemInfo : MonoBehaviour
     protected int item_Armor; // 아이템 추가 방어력
     [SerializeField]
     protected int item_Magic_Resistance; // 아이템 추가 마법 저항력
-    [SerializeField]
-    protected Material item_Material; // 아이템 매테리얼
-    [SerializeField]
-    protected Sprite item_Sprite; // 아이템 스프라이트
+    
+    public Material item_Material; // 아이템 매테리얼
+    
+    public Sprite item_Sprite; // 아이템 스프라이트
 
     public bool is_Raw_Item; // 재료 아이템인지 판별 false = 완성 , true = 재료
     #endregion 

@@ -38,6 +38,8 @@ public class ItemBox : MonoBehaviour
             {
                 hit_Champ.Item_Equip(box_Item); 
                 hit_Champ.have_Item_Count++;
+
+                GameObject.Destroy(this.gameObject);
             }
         }
         else
@@ -57,7 +59,10 @@ public class ItemBox : MonoBehaviour
 
     void Start()
     {
-        
+        if(box_Item != null)
+        {
+            this.GetComponent<MeshRenderer>().material = box_Item.item_Material;
+        }
     }
 
     void Update()

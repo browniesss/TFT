@@ -26,6 +26,8 @@ public class Garen : ChampionData
 
         Move();
 
+        Item_UI_Position_Set();
+
         if (Input.GetKeyDown(KeyCode.F8))
             Damaged(5);
     }

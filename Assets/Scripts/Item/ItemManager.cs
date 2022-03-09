@@ -5,6 +5,7 @@ using UnityEngine;
 /* 아이템 코드 정리
  
 1 bf대검 2 곡궁 3 쇠사슬 조끼 4 음전자 망토 5 쓸큰지 6 여눈 7 벨트 8 장갑 9 뒤집개
+10 죽음의 검 
 
 */
 
@@ -22,8 +23,7 @@ public class ItemManager : Singleton<ItemManager>
                     switch (item_2.item_Code)
                     {
                         case 1:
-                            Debug.Log("죽음의검");
-                            return null;
+                            return result_Item_Arr[0]; // 죽음의 검 반환
                     }
                 }
                 break;

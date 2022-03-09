@@ -73,7 +73,7 @@ MonoBehaviour:
   Attack_Delay: 1
   Armor: 40
   Magic_Resistance: 40
-  Speed: 0
+  Speed: 150
   Attack_Range: 150
   Skill_Damage: 
   Champion_Level: 0
@@ -139,7 +139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fff0ae3154cc48c4ea4147da1bfe635f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -734
+      value: -715
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fff0ae3154cc48c4ea4147da1bfe635f, type: 3}
       propertyPath: m_LocalPosition.y

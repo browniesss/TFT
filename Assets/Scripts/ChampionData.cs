@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public abstract class ChampionData : MonoBehaviour
@@ -63,6 +64,8 @@ public abstract class ChampionData : MonoBehaviour
     [Header("Synergy Using")]
     public bool twin_Shot_Check; // 쌍발총 연속 공격을 했는지 체크
 
+   
+
     public abstract void Damaged(float damage);
 
     public abstract void Champ_Synergy_Init();
@@ -114,7 +117,7 @@ public abstract class ChampionData : MonoBehaviour
         Item_Effect_Renew();
     }
 
-    void Item_Effect_Renew()
+    void Item_Effect_Renew() // 아이템 효과 갱신
     {
         item_Add_Hp = 0f;
         item_Add_Ap = 0f;
@@ -126,6 +129,56 @@ public abstract class ChampionData : MonoBehaviour
         foreach (ItemInfo item in itemList)
         {
             item.Add_Status(this);
+        }
+
+        Item_Show_Renew();
+    }
+
+    protected virtual void Item_UI_Position_Set() // 아이템 UI 위치 재설정
+    {
+        int item_Count = 0;
+
+        foreach (GameObject item_Image in item_UI_List)
+        {
+            item_Image.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(new Vector3(
+             transform.position.x,
+             transform.position.y,
+             transform.position.z));
+
+            item_Count++;
+        }
+    }
+
+    protected List<GameObject> item_UI_List = new List<GameObject>();
+    void Item_Show_Renew() // 아이템 UI 갱신
+    {
+        int item_Count = 0;
+
+        GameObject canvas = FindObjectOfType<Canvas>().gameObject;
+
+        foreach (GameObject item_Image in item_UI_List)
+        {
+            item_Image.GetComponent<Image>().sprite = null;
+
+            GameManager.Resource.Destroy(item_Image);
+        }
+
+        item_UI_List.Clear(); // 리스트 초기화
+
+        foreach (ItemInfo item in itemList)
+        {
+            GameObject item_Image = GameManager.Resource.Instantiate("Item/Item_UI_Image", canvas.transform);
+
+            item_UI_List.Add(item_Image);
+
+            item_Image.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(new Vector3(
+                 transform.position.x,
+                 transform.position.y,
+                 transform.position.z));
+
+            item_Image.GetComponent<Image>().sprite = item.item_Sprite;
+            item_Count++;
+            Debug.Log("아이템 카운트임" + item_Count);
         }
     }
 

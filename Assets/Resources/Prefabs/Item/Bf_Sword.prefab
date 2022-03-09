@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01843c71bcb3b854bab7b231f65ccf1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item_Name: "BF \uB300\uAC80"
   item_Code: 1
+  item_Name: "BF \uB300\uAC80"
   item_HP: 0
   item_MP: 0
   item_Damage: 15
@@ -53,4 +53,5 @@ MonoBehaviour:
   item_Armor: 0
   item_Magic_Resistance: 0
   item_Material: {fileID: 2100000, guid: f0bff3c54c551634d8e012aeb9415d7b, type: 2}
+  item_Sprite: {fileID: 21300000, guid: 32825ec16ba664646bd24653dc512fc9, type: 3}
   is_Raw_Item: 1

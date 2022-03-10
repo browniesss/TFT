@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 /* 시너지 코드 정리
 
-1 : 아카데미 2 : 봉쇄자 3 : 저격수 4 : 집행자 5 : 쌍발총
+1 : 아카데미 2 : 봉쇄자 3 : 저격수 4 : 집행자 5 : 쌍발총 6 : 도전자
 
 */
 
@@ -16,6 +16,7 @@ public class SynergyManager : Singleton<SynergyManager>
     public Sniper sniper; // 저격수
     public Enforcer enforcer; // 집행자
     public Twinshot twinShot; // 쌍발총
+    public Challenger challenger;  //도전자
 
     List<Synergy> synergy_List; // 활성화 된 시너지 리스트
     List<ChampionData> champ_List; // 현재 필드위 챔피언 리스트
@@ -48,11 +49,15 @@ public class SynergyManager : Singleton<SynergyManager>
         twinShot = new Twinshot();
         twinShot.Synergy_Init();
 
+        challenger = new Challenger();
+        challenger.Synergy_Init();
+
         synergy_List.Add(academy);
         synergy_List.Add(protector);
         synergy_List.Add(sniper);
         synergy_List.Add(enforcer);
         synergy_List.Add(twinShot);
+        synergy_List.Add(challenger);
     }
 
     public void Synergy_Find(ChampionData data, bool truth)

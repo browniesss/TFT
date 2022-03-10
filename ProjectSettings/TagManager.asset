@@ -9,6 +9,7 @@ TagManager:
   - Tile
   - MyTile
   - ReadyTile
+  - ChampUICanvas
   layers:
   - Default
   - TransparentFX

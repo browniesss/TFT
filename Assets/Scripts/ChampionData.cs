@@ -10,8 +10,8 @@ public abstract class ChampionData : MonoBehaviour
     public float Origin_MaxHP; // 전투 시작 시 저장할 최대체력
 
     public float Shield; // 보호막
-    [SerializeField]
-    protected float MaxHP; // 체력
+
+    public float MaxHP; // 체력
     [SerializeField]
     protected float HP; // 체력
     [SerializeField]
@@ -19,6 +19,8 @@ public abstract class ChampionData : MonoBehaviour
     public int MP; // 마나
     public float Origin_Damage; // 전투 시작 시 저장할 공격력
     public float Damage; // 전투에 이용할 공격력
+
+    public float Origin_Ability_Power; // 전투 시작 시 저장할 주문력
     public float Ability_Power; // 주문력
     [SerializeField]
     protected float Attack_Delay; // 공격속도
@@ -64,7 +66,7 @@ public abstract class ChampionData : MonoBehaviour
     [Header("Synergy Using")]
     public bool twin_Shot_Check; // 쌍발총 연속 공격을 했는지 체크
 
-   
+
 
     public abstract void Damaged(float damage);
 
@@ -106,6 +108,8 @@ public abstract class ChampionData : MonoBehaviour
 
                 itemList.Add(result_Item);
 
+                have_Item_Count--;
+
                 Item_Effect_Renew();
                 return;
             }
@@ -129,21 +133,29 @@ public abstract class ChampionData : MonoBehaviour
         foreach (ItemInfo item in itemList)
         {
             item.Add_Status(this);
+            item.Item_Init(this);
         }
 
         Item_Show_Renew();
     }
 
+    public Vector3 offset = Vector3.zero; 
     protected virtual void Item_UI_Position_Set() // 아이템 UI 위치 재설정
     {
         int item_Count = 0;
 
+        GameObject canvas = GameObject.FindGameObjectWithTag("ChampUICanvas");
+
         foreach (GameObject item_Image in item_UI_List)
         {
-            item_Image.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(new Vector3(
-             transform.position.x,
-             transform.position.y,
-             transform.position.z));
+            var screenPos = Camera.main.WorldToScreenPoint(transform.position + offset);
+
+            var localPos = Vector2.zero;
+
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(),
+                screenPos,canvas.GetComponent<Canvas>().worldCamera, out localPos);
+
+            item_Image.GetComponent<RectTransform>().localPosition = localPos;
 
             item_Count++;
         }
@@ -154,7 +166,7 @@ public abstract class ChampionData : MonoBehaviour
     {
         int item_Count = 0;
 
-        GameObject canvas = FindObjectOfType<Canvas>().gameObject;
+        GameObject canvas = GameObject.FindGameObjectWithTag("ChampUICanvas");
 
         foreach (GameObject item_Image in item_UI_List)
         {
@@ -172,9 +184,9 @@ public abstract class ChampionData : MonoBehaviour
             item_UI_List.Add(item_Image);
 
             item_Image.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(new Vector3(
-                 transform.position.x,
-                 transform.position.y,
-                 transform.position.z));
+           transform.position.x + 150f + item_Count * 45f,
+           transform.position.y + 300f,
+           transform.position.z));
 
             item_Image.GetComponent<Image>().sprite = item.item_Sprite;
             item_Count++;
@@ -214,18 +226,20 @@ public abstract class ChampionData : MonoBehaviour
     public virtual void Champion_Info_Init() // 레벨업 시 정보 초기화
     {
         Origin_MaxHP = Origin_MaxHP * Mathf.Pow(1.8f, Champion_Level);
-        MaxHP = Origin_MaxHP;
-        HP = Origin_MaxHP;
+        MaxHP = Origin_MaxHP + item_Add_Hp;
+        HP = MaxHP;
         Origin_Damage = Origin_Damage * Mathf.Pow(1.8f, Champion_Level);
-        Damage = Origin_Damage;
+        Damage = Origin_Damage + item_Add_Damage;
+        Origin_Ability_Power = 100f;
+        Ability_Power = Origin_Ability_Power + item_Add_Ap;
     }
 
     public virtual void Champion_Info_Reset() // 전투 종료시 정보 초기화
     {
-        MaxHP = Origin_MaxHP;
-        HP = Origin_MaxHP;
-        Damage = Origin_Damage;
-        Ability_Power = 100f;
+        MaxHP = Origin_MaxHP + item_Add_Hp;
+        HP = MaxHP;
+        Damage = Origin_Damage + item_Add_Damage;
+        Ability_Power = Origin_Ability_Power + item_Add_Ap;
     }
 
     #region 마우스 드래그

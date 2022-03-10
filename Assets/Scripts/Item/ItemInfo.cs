@@ -30,7 +30,7 @@ public class ItemInfo : MonoBehaviour
     public bool is_Raw_Item; // 재료 아이템인지 판별 false = 완성 , true = 재료
     #endregion 
 
-    public void Add_Status(ChampionData champ) // 캐릭터의 아이템 능력치를 올려주는 함수
+    public virtual void Add_Status(ChampionData champ) // 캐릭터의 아이템 능력치를 올려주는 함수
     {
         champ.item_Add_Hp += item_HP;
         champ.MP += item_MP;
@@ -40,6 +40,18 @@ public class ItemInfo : MonoBehaviour
         champ.item_Add_Armor += item_Armor;
         champ.item_Add_Magic_Resistance += item_Magic_Resistance;
     }
+
+    public virtual void Item_Init(ChampionData champ)  { } // 장착 시 발동되는 아이템 효과
+
+    public virtual void Item_Battle_Init(ChampionData champ) { } // 전투 시작 시 발동되는 아이템 효과
+    
+    public virtual void Item_Skill_Act(ChampionData champ) { } // 스킬 사용 시 발동되는 아이템 효과
+
+    public virtual void Item_Attack_Act(ChampionData champ) { } // 공격 시 발동되는 아이템 효과
+
+    public virtual void Item_Damaged_Act(ChampionData champ) { } // 피격 시 발동되는 아이템 효과
+
+    public virtual void Item_Death_Act(ChampionData champ) { } // 사망 시 발동되는 아이템 효과
 
     void Start()
     {

@@ -93,6 +93,7 @@ MonoBehaviour:
   cur_Target: {fileID: 0}
   cur_Tile: {fileID: 0}
   twin_Shot_Check: 0
+  offset: {x: -70, y: 250, z: 0}
   originalPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &1918629248423571986
 PrefabInstance:
@@ -139,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fff0ae3154cc48c4ea4147da1bfe635f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -715
+      value: -709
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fff0ae3154cc48c4ea4147da1bfe635f, type: 3}
       propertyPath: m_LocalPosition.y

@@ -50,6 +50,11 @@ public class Garen : ChampionData
 
         MP += 10; // 때릴때마다 마나 10회복
 
+        foreach(ItemInfo item in itemList)
+        {
+            item.Item_Attack_Act(this);
+        }
+
         Active_Skill();
     }
 
@@ -62,6 +67,10 @@ public class Garen : ChampionData
             isStun = false;
 
             //cur_Target.GetComponent<ChampionData>().Damaged(Damage * 2);
+            foreach (ItemInfo item in itemList)
+            {
+                item.Item_Skill_Act(this);
+            }
 
             animator.SetBool("isSkill", true);
         }

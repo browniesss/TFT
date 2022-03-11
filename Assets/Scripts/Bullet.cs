@@ -79,10 +79,10 @@ public class Bullet : MonoBehaviour
             isCollision = true;
 
             if (!isSkill)
-                other.gameObject.GetComponent<ChampionData>().Damaged(parentChampion.Damage);
+                other.gameObject.GetComponent<ChampionData>().Damaged(parentChampion.Damage, true);
             else
                 other.gameObject.GetComponent<ChampionData>().Damaged(parentChampion.
-                    Skill_Damage[parentChampion.Champion_Level]);
+                    Skill_Damage[parentChampion.Champion_Level], false);
 
             GameManager.Resource.Destroy(this.gameObject);
         }

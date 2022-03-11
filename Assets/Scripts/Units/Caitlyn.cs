@@ -28,19 +28,7 @@ public class Caitlyn : ChampionData
 
         Move();
 
-        if (Input.GetKeyDown(KeyCode.F8))
-            Damaged(5);
     }
-
-    public override void Damaged(float damage)
-    {
-        Debug.Log(this.name + damage);
-
-        MP += 5; // 피격 시 마나 5획득
-
-        Active_Skill();
-    }
-
     public override void Attack()
     {
         if (!target_Set) // 타겟이 지정된 상태가 아니라면 리턴
@@ -58,7 +46,7 @@ public class Caitlyn : ChampionData
         Active_Skill();
     }
 
-    void Active_Skill() // 스킬 발동
+    protected override void Active_Skill() // 스킬 발동
     {
         if (MP >= MaxMP) // 마나가 전부 차면
         {

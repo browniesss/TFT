@@ -22,9 +22,9 @@ public class ItemInfo : MonoBehaviour
     protected int item_Armor; // 아이템 추가 방어력
     [SerializeField]
     protected int item_Magic_Resistance; // 아이템 추가 마법 저항력
-    
+
     public Material item_Material; // 아이템 매테리얼
-    
+
     public Sprite item_Sprite; // 아이템 스프라이트
 
     public bool is_Raw_Item; // 재료 아이템인지 판별 false = 완성 , true = 재료
@@ -41,13 +41,13 @@ public class ItemInfo : MonoBehaviour
         champ.item_Add_Magic_Resistance += item_Magic_Resistance;
     }
 
-    public virtual void Item_Init(ChampionData champ)  { } // 장착 시 발동되는 아이템 효과
+    public virtual void Item_Init(ChampionData champ) { } // 장착 시 발동되는 아이템 효과
 
     public virtual void Item_Battle_Init(ChampionData champ) { } // 전투 시작 시 발동되는 아이템 효과
-    
-    public virtual void Item_Skill_Act(ChampionData champ) { } // 스킬 사용 시 발동되는 아이템 효과
 
-    public virtual void Item_Attack_Act(ChampionData champ) { } // 공격 시 발동되는 아이템 효과
+    public virtual void Item_Skill_Act(ChampionData champ, bool attack_Type) { } // 스킬 사용 시 발동되는 아이템 효과
+
+    public virtual void Item_Attack_Act(ChampionData champ, bool attack_Type) { } // 공격 시 발동되는 아이템 효과
 
     public virtual void Item_Damaged_Act(ChampionData champ) { } // 피격 시 발동되는 아이템 효과
 
@@ -55,11 +55,11 @@ public class ItemInfo : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        
+
     }
 }

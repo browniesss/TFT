@@ -66,9 +66,27 @@ public abstract class ChampionData : MonoBehaviour
     [Header("Synergy Using")]
     public bool twin_Shot_Check; // 쌍발총 연속 공격을 했는지 체크
 
+    public virtual float Damaged(float damage, bool attack_Type) // attack_Type = 물리, 마법피해인지 판별 true = 물리, false = 마법
+    {
+        float result_Damage = 0;
 
+        if (attack_Type) // 물리 피해일경우 
+            result_Damage = (100.0f / (100 + Armor)) * damage;
+        else // 마법 피해일 경우
+            result_Damage = (100.0f / (100 + Magic_Resistance)) * damage;
 
-    public abstract void Damaged(float damage);
+        Debug.Log(result_Damage + "계산후 데미지");
+
+        Debug.Log(this.name + " " + damage);
+
+        MP += 5; // 피격 시 마나 5획득
+
+        Active_Skill();
+
+        return result_Damage;
+    }
+
+    protected virtual void Active_Skill() { }
 
     public abstract void Champ_Synergy_Init();
 
@@ -139,7 +157,7 @@ public abstract class ChampionData : MonoBehaviour
         Item_Show_Renew();
     }
 
-    public Vector3 offset = Vector3.zero; 
+    public Vector3 offset = Vector3.zero;
     protected virtual void Item_UI_Position_Set() // 아이템 UI 위치 재설정
     {
         int item_Count = 0;
@@ -153,7 +171,7 @@ public abstract class ChampionData : MonoBehaviour
             var localPos = Vector2.zero;
 
             RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(),
-                screenPos,canvas.GetComponent<Canvas>().worldCamera, out localPos);
+                screenPos, canvas.GetComponent<Canvas>().worldCamera, out localPos);
 
             item_Image.GetComponent<RectTransform>().localPosition = localPos;
 

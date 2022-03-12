@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4027664232099806680
+--- !u!1 &3322164985404661435
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7768896710289940085}
-  - component: {fileID: 5403206279564047133}
+  - component: {fileID: 8227859168042401046}
+  - component: {fileID: 7265496820160647609}
   m_Layer: 0
-  m_Name: Zekes_Herald
+  m_Name: Spear_Of_Shojin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7768896710289940085
+--- !u!4 &8227859168042401046
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4027664232099806680}
+  m_GameObject: {fileID: 3322164985404661435}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.296698, y: 231.3, z: 5.856373}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,27 +31,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5403206279564047133
+--- !u!114 &7265496820160647609
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4027664232099806680}
+  m_GameObject: {fileID: 3322164985404661435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2c72b387bcfa9944a17715e04ceeb72, type: 3}
+  m_Script: {fileID: 11500000, guid: aedd49525057320498a70fe7a0959415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item_Code: 16
-  item_Name: "\uC9C0\uD06C\uC758 \uC804\uB839"
-  item_HP: 150
-  item_MP: 0
+  item_Code: 15
+  item_Name: "\uC1FC\uC9C4\uC758 \uCC3D"
+  item_HP: 0
+  item_MP: 15
   item_Damage: 10
   item_AP: 0
   item_Attack_Delay: 0
   item_Armor: 0
   item_Magic_Resistance: 0
-  item_Material: {fileID: 2100000, guid: 42ac0ac5a124c8c48a883763659bb173, type: 2}
-  item_Sprite: {fileID: 21300000, guid: fc59f9f2e56481f4d9553a2655484fb0, type: 3}
+  item_Material: {fileID: 2100000, guid: 3bf134e95923991439c1eba6a67cc6cc, type: 2}
+  item_Sprite: {fileID: 21300000, guid: 14a0919f17b7ac14ab345f2a6d1191f3, type: 3}
   is_Raw_Item: 0

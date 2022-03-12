@@ -24,6 +24,9 @@ public abstract class ChampionData : MonoBehaviour
     public float Ability_Power; // 주문력
     public float Origin_Attack_Delay; // 전투 시작 시 저장할 공격속도
     public float Attack_Delay; // 공격속도
+    public float Critical_Chance; // 치명타 확률
+    public float Critical_Damage; // 치명타 데미지
+
     [SerializeField]
     protected int Armor; // 방어력
     [SerializeField]
@@ -31,13 +34,14 @@ public abstract class ChampionData : MonoBehaviour
     [SerializeField]
     protected int Speed; // 이동 속도
     [SerializeField]
-    protected int Attack_Range; // 사정거리
+    public int Attack_Range; // 사정거리
 
     public int[] Skill_Damage; // 스킬 데미지
 
     public int Champion_Level; // 챔피언 레벨(성)
     public int Champion_Code; // 챔피언 코드
 
+    #region 아이템 관련 변수들
     public List<ItemInfo> itemList = new List<ItemInfo>(); // 보유 아이템 3개까지 가능
     public int have_Item_Count; // 보유한 아이템 수
 
@@ -47,6 +51,9 @@ public abstract class ChampionData : MonoBehaviour
     public float item_Add_Attack_Delay; // 아이템으로 추가된 공격속도
     public int item_Add_Armor; // 아이템으로 추가된 방어력
     public int item_Add_Magic_Resistance; // 아이템으로 추가된 마법 저항력
+    public float item_Add_Critical_Chance; // 아이템으로 추가된 치명타 확률
+    public float item_Add_Critical_Damage; // 아이템으로 추가된 치명타 피해량
+    #endregion
 
     public float get_Pysical_Attack; // 가장 최근 물리 공격 입힌 피해량 저장
     public float get_Magic_Attack; // 가장 최근 마법 공격 입힌 피해량 저장
@@ -150,6 +157,8 @@ public abstract class ChampionData : MonoBehaviour
         item_Add_Attack_Delay = 0f;
         item_Add_Armor = 0;
         item_Add_Magic_Resistance = 0;
+        item_Add_Critical_Chance = 0f;
+        item_Add_Critical_Damage = 0f;
 
         foreach (ItemInfo item in itemList)
         {
@@ -262,6 +271,8 @@ public abstract class ChampionData : MonoBehaviour
         Damage = Origin_Damage + item_Add_Damage;
         Ability_Power = Origin_Ability_Power + item_Add_Ap;
         Attack_Delay = Origin_Attack_Delay * (1f + item_Add_Attack_Delay * 0.01f);
+        Critical_Damage = 130f + item_Add_Critical_Damage;
+        Critical_Chance = 25f + item_Add_Critical_Chance;
         animator.SetFloat("Attack_Speed", Attack_Delay);
     }
 

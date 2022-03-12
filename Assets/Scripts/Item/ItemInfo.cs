@@ -22,6 +22,8 @@ public class ItemInfo : MonoBehaviour
     protected int item_Armor; // 아이템 추가 방어력
     [SerializeField]
     protected int item_Magic_Resistance; // 아이템 추가 마법 저항력
+    [SerializeField]
+    protected float item_Critical; // 아이템 추가 치명타 확률
 
     public Material item_Material; // 아이템 매테리얼
 

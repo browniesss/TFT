@@ -45,6 +45,8 @@ public class ItemInfo : MonoBehaviour
 
     public virtual void Item_Battle_Init(ChampionData champ) { } // 전투 시작 시 발동되는 아이템 효과
 
+    public virtual void Item_Battle_End(ChampionData champ) { } // 전투 종료 시 발동되는 아이템 효과
+
     public virtual void Item_Skill_Act(ChampionData champ, bool attack_Type) { } // 스킬 사용 시 발동되는 아이템 효과
 
     public virtual void Item_Attack_Act(ChampionData champ, bool attack_Type) { } // 공격 시 발동되는 아이템 효과

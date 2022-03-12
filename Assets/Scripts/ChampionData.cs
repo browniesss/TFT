@@ -22,8 +22,8 @@ public abstract class ChampionData : MonoBehaviour
 
     public float Origin_Ability_Power; // 전투 시작 시 저장할 주문력
     public float Ability_Power; // 주문력
-    [SerializeField]
-    protected float Attack_Delay; // 공격속도
+    public float Origin_Attack_Delay; // 전투 시작 시 저장할 공격속도
+    public float Attack_Delay; // 공격속도
     [SerializeField]
     protected int Armor; // 방어력
     [SerializeField]
@@ -48,6 +48,9 @@ public abstract class ChampionData : MonoBehaviour
     public int item_Add_Armor; // 아이템으로 추가된 방어력
     public int item_Add_Magic_Resistance; // 아이템으로 추가된 마법 저항력
 
+    public float get_Pysical_Attack; // 가장 최근 물리 공격 입힌 피해량 저장
+    public float get_Magic_Attack; // 가장 최근 마법 공격 입힌 피해량 저장
+
     // 시너지
     public List<Synergy> Synergys = new List<Synergy>();
 
@@ -66,7 +69,7 @@ public abstract class ChampionData : MonoBehaviour
     [Header("Synergy Using")]
     public bool twin_Shot_Check; // 쌍발총 연속 공격을 했는지 체크
 
-    public virtual float Damaged(float damage, bool attack_Type) // attack_Type = 물리, 마법피해인지 판별 true = 물리, false = 마법
+    public virtual (bool type, float damage) Damaged(float damage, bool attack_Type) // attack_Type = 물리, 마법피해인지 판별 true = 물리, false = 마법
     {
         float result_Damage = 0;
 
@@ -83,7 +86,7 @@ public abstract class ChampionData : MonoBehaviour
 
         Active_Skill();
 
-        return result_Damage;
+        return (attack_Type, result_Damage);
     }
 
     protected virtual void Active_Skill() { }
@@ -139,7 +142,7 @@ public abstract class ChampionData : MonoBehaviour
         Item_Effect_Renew();
     }
 
-    void Item_Effect_Renew() // 아이템 효과 갱신
+    void Item_Effect_Renew() // 아이템 효과 갱신 ( 전투 종료 시에도 호출처리 해놓아야 함 ) 
     {
         item_Add_Hp = 0f;
         item_Add_Ap = 0f;
@@ -212,7 +215,7 @@ public abstract class ChampionData : MonoBehaviour
         }
     }
 
-    protected Animator animator;
+    public Animator animator;
     public virtual void Target_Check() // 타겟을 체크 해주는 함수.
     {
         float distance = Vector3.Distance(cur_Target.transform.position, transform.position);
@@ -258,6 +261,16 @@ public abstract class ChampionData : MonoBehaviour
         HP = MaxHP;
         Damage = Origin_Damage + item_Add_Damage;
         Ability_Power = Origin_Ability_Power + item_Add_Ap;
+        Attack_Delay = Origin_Attack_Delay * (1f + item_Add_Attack_Delay * 0.01f);
+        animator.SetFloat("Attack_Speed", Attack_Delay);
+    }
+
+    public virtual void Champion_Restore_HP(float heal_Amount) // 체력 회복 함수
+    {
+        if (HP + heal_Amount <= MaxHP)
+            HP += heal_Amount;
+        else
+            HP = MaxHP;
     }
 
     #region 마우스 드래그

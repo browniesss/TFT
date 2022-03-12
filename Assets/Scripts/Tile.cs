@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public ChampionData tile_Champion; // 해당 타일에 올라와있는 챔피언
+    public int tile_Number; // 해당 타일의 번호
 
     public void Tile_Change(ChampionData data) // 이미 챔피언이 있던 경우 타일을 서로 바꿔주는 함수
     {

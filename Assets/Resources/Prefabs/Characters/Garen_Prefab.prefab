@@ -69,8 +69,10 @@ MonoBehaviour:
   MP: 50
   Origin_Damage: 70
   Damage: 70
+  Origin_Ability_Power: 100
   Ability_Power: 0
-  Attack_Delay: 1
+  Origin_Attack_Delay: 0.55
+  Attack_Delay: 0.55
   Armor: 40
   Magic_Resistance: 40
   Speed: 150
@@ -86,6 +88,8 @@ MonoBehaviour:
   item_Add_Attack_Delay: 0
   item_Add_Armor: 0
   item_Add_Magic_Resistance: 0
+  get_Pysical_Attack: 0
+  get_Magic_Attack: 0
   Synergys: []
   target_Set: 0
   isAttack: 0
@@ -94,6 +98,7 @@ MonoBehaviour:
   cur_Tile: {fileID: 0}
   twin_Shot_Check: 0
   offset: {x: -70, y: 250, z: 0}
+  animator: {fileID: 0}
   originalPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &1918629248423571986
 PrefabInstance:
@@ -140,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fff0ae3154cc48c4ea4147da1bfe635f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -709
+      value: -484
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fff0ae3154cc48c4ea4147da1bfe635f, type: 3}
       propertyPath: m_LocalPosition.y

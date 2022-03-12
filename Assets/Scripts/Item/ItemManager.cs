@@ -5,7 +5,7 @@ using UnityEngine;
 /* 아이템 코드 정리
  
 1 bf대검 2 곡궁 3 쇠사슬 조끼 4 음전자 망토 5 쓸큰지 6 여눈 7 벨트 8 장갑 9 뒤집개
-10 죽음의 검 11 거인 학살자 12 수호천사 13 피바라기
+10 죽음의 검 11 거인 학살자 12 수호천사 13 피바라기 14 마법공학 총검 15 지크의 전령
 
 */
 
@@ -22,10 +22,16 @@ public class ItemManager : Singleton<ItemManager>
         result_Item_Arr[0, 1] = result_Item_Save[1];
         result_Item_Arr[0, 2] = result_Item_Save[2];
         result_Item_Arr[0, 3] = result_Item_Save[3];
+        result_Item_Arr[0, 4] = result_Item_Save[4];
+        result_Item_Arr[0, 5] = result_Item_Save[5];
+        result_Item_Arr[0, 6] = result_Item_Save[6];
 
         result_Item_Arr[1, 0] = result_Item_Save[1];
         result_Item_Arr[2, 0] = result_Item_Save[2];
         result_Item_Arr[3, 0] = result_Item_Save[3];
+        result_Item_Arr[4, 0] = result_Item_Save[4];
+        result_Item_Arr[5, 0] = result_Item_Save[5];
+        result_Item_Arr[6, 0] = result_Item_Save[6];
     }
 
     private void Start()

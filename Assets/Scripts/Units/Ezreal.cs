@@ -39,7 +39,7 @@ public class Ezreal : ChampionData
 
         GameObject bullet = GameManager.Resource.Instantiate("Bullets/Ezreal_Bullet", this.transform);
 
-        bullet.GetComponent<Bullet>().Bullet_Init(true, false) ;
+        bullet.GetComponent<Bullet>().Bullet_Init(true, false);
         bullet.transform.position = bullet_Pos.position;
 
         MP += 10;
@@ -71,6 +71,6 @@ public class Ezreal : ChampionData
 
     public override void Champ_Synergy_Init()
     {
-        
+
     }
 }

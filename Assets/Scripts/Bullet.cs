@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
         parentChampion = transform.parent.GetComponent<ChampionData>();
     }
 
-    Vector3 bullet_Target; // ÃÑ¾ËÀÇ Á÷Á¢ Å¸°Ù
+    Vector3 bullet_Target; // ÃÑ¾ËÀÇ Á÷Á¢ Å¸°Ù ÁÂÇ¥
     public void Bullet_Init(bool truth, bool skill_truth, Vector3 targetPos)
     {
         bullet_Target = targetPos;
@@ -34,6 +34,17 @@ public class Bullet : MonoBehaviour
         parentChampion = transform.parent.GetComponent<ChampionData>();
 
         StartCoroutine(Destroy_Coroutine());
+    }
+    GameObject bullet_Target_Obj; // ÃÑ¾ËÀÇ Á÷Á¢ Å¸°Ù ¿ÀºêÁ§Æ®
+    float bullet_Direct_Damage; // ÃÑ¾Ë Á÷Á¢ Å¸°Ù½Ã µ¥¹ÌÁö
+    public void Bullet_Init(bool truth, bool skill_truth,GameObject direct_Target,float damage)
+    {
+        bullet_Target_Obj = direct_Target;
+        bullet_Target = bullet_Target_Obj.transform.position;
+        direct_Attack = truth;
+        isCollision = false;
+        isSkill = skill_truth;
+        bullet_Direct_Damage = damage;
     }
 
     IEnumerator Destroy_Coroutine()
@@ -83,6 +94,14 @@ public class Bullet : MonoBehaviour
             else
                 other.gameObject.GetComponent<ChampionData>().Damaged(parentChampion.
                     Skill_Damage[parentChampion.Champion_Level], false);
+
+            GameManager.Resource.Destroy(this.gameObject);
+        }
+        else if(other.gameObject == bullet_Target_Obj) // Á÷Á¢ Å¸°ÙÇÏ´Â ÃÑ¾ËÀÇ Å¸°ÙÀÌ¶ó¸é
+        {
+            isCollision = true;
+
+            other.gameObject.GetComponent<ChampionData>().Damaged(bullet_Direct_Damage, true);
 
             GameManager.Resource.Destroy(this.gameObject);
         }

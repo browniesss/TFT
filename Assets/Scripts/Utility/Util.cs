@@ -26,6 +26,8 @@ public class Util : Singleton<Util>
         // 탐색할 오브젝트 목록을 List 로 저장합니다.
         var objects = GameObject.FindGameObjectsWithTag(tag).ToList();
 
+        objects.Remove(champ);
+
         // LINQ 메소드를 이용해 가장 가까운 적을 찾습니다.
         var neareastObject = objects
             .OrderBy(obj =>

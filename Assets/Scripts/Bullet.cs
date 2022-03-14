@@ -35,9 +35,10 @@ public class Bullet : MonoBehaviour
 
         StartCoroutine(Destroy_Coroutine());
     }
+
     GameObject bullet_Target_Obj; // 총알의 직접 타겟 오브젝트
     float bullet_Direct_Damage; // 총알 직접 타겟시 데미지
-    public void Bullet_Init(bool truth, bool skill_truth,GameObject direct_Target,float damage)
+    public void Bullet_Init(bool truth, bool skill_truth, GameObject direct_Target, float damage)
     {
         bullet_Target_Obj = direct_Target;
         bullet_Target = bullet_Target_Obj.transform.position;
@@ -45,6 +46,7 @@ public class Bullet : MonoBehaviour
         isCollision = false;
         isSkill = skill_truth;
         bullet_Direct_Damage = damage;
+        parentChampion = transform.parent.GetComponent<ChampionData>();
     }
 
     IEnumerator Destroy_Coroutine()
@@ -79,14 +81,15 @@ public class Bullet : MonoBehaviour
              (bullet_Target - transform.position);
 
             transform.position = Vector3.MoveTowards(transform.position, bullet_Target,
-                   900f * Time.deltaTime);
+                   1500f * Time.deltaTime);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == parentChampion.cur_Target)
+        if (other.gameObject == parentChampion.cur_Target && direct_Attack)
         {
+            Debug.Log("직접 충돌");
             isCollision = true;
 
             if (!isSkill)
@@ -97,7 +100,7 @@ public class Bullet : MonoBehaviour
 
             GameManager.Resource.Destroy(this.gameObject);
         }
-        else if(other.gameObject == bullet_Target_Obj) // 직접 타겟하는 총알의 타겟이라면
+        else if (other.gameObject == bullet_Target_Obj) // 직접 타겟하는 총알의 타겟이라면
         {
             isCollision = true;
 

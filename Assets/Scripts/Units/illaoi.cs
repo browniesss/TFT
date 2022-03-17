@@ -25,7 +25,6 @@ public class illaoi : ChampionData
         Target_Check();
 
         Move();
-
     }
 
     public override void Attack()

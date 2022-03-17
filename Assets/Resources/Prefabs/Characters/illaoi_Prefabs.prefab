@@ -2020,20 +2020,40 @@ MonoBehaviour:
   MP: 40
   Origin_Damage: 70
   Damage: 70
+  Origin_Ability_Power: 0
   Ability_Power: 0
+  Origin_Attack_Delay: 0
   Attack_Delay: 1
+  Critical_Chance: 0
+  Critical_Damage: 0
   Armor: 40
   Magic_Resistance: 40
   Speed: 150
   Attack_Range: 150
+  Skill_Damage: 
   Champion_Level: 0
   Champion_Code: 6
+  itemList: []
+  have_Item_Count: 0
+  item_Add_Hp: 0
+  item_Add_Ap: 0
+  item_Add_Damage: 0
+  item_Add_Attack_Delay: 0
+  item_Add_Armor: 0
+  item_Add_Magic_Resistance: 0
+  item_Add_Critical_Chance: 0
+  item_Add_Critical_Damage: 0
+  get_Pysical_Attack: 0
+  get_Magic_Attack: 0
   Synergys: []
   target_Set: 0
   isAttack: 0
   isStun: 0
   cur_Target: {fileID: 0}
   cur_Tile: {fileID: 0}
+  twin_Shot_Check: 0
+  offset: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
   originalPos: {x: 0, y: 0, z: 0}
 --- !u!1 &5807627751936888692
 GameObject:

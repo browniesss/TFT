@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1758683492003154528
+--- !u!1 &808204860305605384
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4926252392894409165}
-  - component: {fileID: 1454570113}
+  - component: {fileID: 6269814612356505765}
+  - component: {fileID: 2646447201876554136}
   m_Layer: 0
-  m_Name: Guinsoos_RageBlade
+  m_Name: Zzrot_Portal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4926252392894409165
+--- !u!4 &6269814612356505765
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758683492003154528}
+  m_GameObject: {fileID: 808204860305605384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.296698, y: 231.3, z: 5.856373}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,28 +31,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1454570113
+--- !u!114 &2646447201876554136
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758683492003154528}
+  m_GameObject: {fileID: 808204860305605384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb2319f3b0390b54a8b5a589631b58e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 3464cec9f2e7cfd438cba794025fa043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item_Code: 23
-  item_Name: "\uC2A4\uD0DC\uD2F1\uC758 \uB2E8\uAC80"
-  item_HP: 0
-  item_MP: 15
+  item_Code: 24
+  item_Name: "\uC988\uB86F \uCC28\uC6D0\uBB38"
+  item_HP: 150
+  item_MP: 0
   item_Damage: 0
   item_AP: 0
-  item_Attack_Delay: 20
+  item_Attack_Delay: 10
   item_Armor: 0
   item_Magic_Resistance: 0
   item_Critical: 0
-  item_Material: {fileID: 2100000, guid: 9d906541c044b8e479f0cafc460c49c7, type: 2}
-  item_Sprite: {fileID: 21300000, guid: 85eb14499cc7c9c4baf39972409907b3, type: 3}
+  item_Material: {fileID: 2100000, guid: 550fa99537023164db010e32d96ec16e, type: 2}
+  item_Sprite: {fileID: 21300000, guid: 940c3ace115755a4c8321ec48e8707f8, type: 3}
   is_Raw_Item: 0

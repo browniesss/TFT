@@ -30,6 +30,8 @@ public class ItemInfo : MonoBehaviour
     public Sprite item_Sprite; // 아이템 스프라이트
 
     public bool is_Raw_Item; // 재료 아이템인지 판별 false = 완성 , true = 재료
+    public bool isEquip; // 현재 장착됐는지 판별
+    public ChampionData myChamp; // 장착한 챔피언 정보
     #endregion 
 
     public virtual void Add_Status(ChampionData champ) // 캐릭터의 아이템 능력치를 올려주는 함수
@@ -41,6 +43,8 @@ public class ItemInfo : MonoBehaviour
         champ.item_Add_Attack_Delay += item_Attack_Delay;
         champ.item_Add_Armor += item_Armor;
         champ.item_Add_Magic_Resistance += item_Magic_Resistance;
+        myChamp = champ;
+        isEquip = true;
     }
 
     public virtual void Item_Init(ChampionData champ) { } // 장착 시 발동되는 아이템 효과

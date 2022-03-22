@@ -174,18 +174,12 @@ public abstract class ChampionData : MonoBehaviour
     {
         int item_Count = 0;
 
-        GameObject canvas = GameObject.FindGameObjectWithTag("ChampUICanvas");
-
         foreach (GameObject item_Image in item_UI_List)
         {
-            var screenPos = Camera.main.WorldToScreenPoint(transform.position + offset);
-
-            var localPos = Vector2.zero;
-
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.GetComponent<RectTransform>(),
-                screenPos, canvas.GetComponent<Canvas>().worldCamera, out localPos);
-
-            item_Image.GetComponent<RectTransform>().localPosition = localPos;
+            item_Image.transform.position = new Vector3(
+          transform.position.x - 150f + item_Count * 45f,
+          transform.position.y + 200f,
+          transform.position.z);
 
             item_Count++;
         }
@@ -196,11 +190,9 @@ public abstract class ChampionData : MonoBehaviour
     {
         int item_Count = 0;
 
-        GameObject canvas = GameObject.FindGameObjectWithTag("ChampUICanvas");
-
         foreach (GameObject item_Image in item_UI_List)
         {
-            item_Image.GetComponent<Image>().sprite = null;
+            item_Image.GetComponent<SpriteRenderer>().sprite = null;
 
             GameManager.Resource.Destroy(item_Image);
         }
@@ -209,18 +201,17 @@ public abstract class ChampionData : MonoBehaviour
 
         foreach (ItemInfo item in itemList)
         {
-            GameObject item_Image = GameManager.Resource.Instantiate("Item/Item_UI_Image", canvas.transform);
+            GameObject item_Image = GameManager.Resource.Instantiate("Item/Item_UI_Image");
 
             item_UI_List.Add(item_Image);
 
-            item_Image.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(new Vector3(
-           transform.position.x + 150f + item_Count * 45f,
+            item_Image.transform.position = new Vector3(
+           transform.position.x - 150f + item_Count * 45f,
            transform.position.y + 300f,
-           transform.position.z));
+           transform.position.z);
 
-            item_Image.GetComponent<Image>().sprite = item.item_Sprite;
+            item_Image.GetComponent<SpriteRenderer>().sprite = item.item_Sprite;
             item_Count++;
-            Debug.Log("아이템 카운트임" + item_Count);
         }
     }
 

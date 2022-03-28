@@ -13,8 +13,11 @@ public class Bramble_Vest : ItemInfo
             isCooldown = true;
 
             StartCoroutine(coolDown_Coroutine());
-        }
 
+            GameObject shock_Wave = GameManager.Resource.Instantiate("Item/Shock_Wave", champ.transform);
+
+            StartCoroutine(shockWave_Destroy_Coroutine(shock_Wave));
+        }
     }
 
     IEnumerator coolDown_Coroutine()
@@ -22,5 +25,12 @@ public class Bramble_Vest : ItemInfo
         yield return new WaitForSeconds(2.5f);
 
         isCooldown = false;
+    }
+
+    IEnumerator shockWave_Destroy_Coroutine(GameObject go)
+    {
+        yield return new WaitForSeconds(0.25f);
+
+        GameManager.Resource.Destroy(go);
     }
 }

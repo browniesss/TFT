@@ -61,7 +61,9 @@ public class ItemInfo : MonoBehaviour
 
     public virtual void Item_Death_Act(ChampionData champ) { } // 사망 시 발동되는 아이템 효과
 
-    void Initialize()
+    public virtual void Item_Constant_Act(ChampionData champ) { } // 상시 발동되는 아이템 효과
+
+    public void Initialize()
     {
         isEquip = false;
         myChamp = null;

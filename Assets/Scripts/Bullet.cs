@@ -89,7 +89,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject == parentChampion.cur_Target && direct_Attack)
         {
-            Debug.Log("流立 面倒");
+            //Debug.Log("流立 面倒");
             isCollision = true;
 
             if (!isSkill)

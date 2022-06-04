@@ -70,6 +70,8 @@ public abstract class ChampionData : MonoBehaviour
 
     [Header("Character Target")]
     public GameObject cur_Target; // 현재 타겟
+    [Header("Character Targeted Count")]
+    public int targeted_Count;
     [Header("Current Tile")]
     public Tile cur_Tile; // 현재 타일
 
@@ -85,13 +87,18 @@ public abstract class ChampionData : MonoBehaviour
         else // 마법 피해일 경우
             result_Damage = (100.0f / (100 + Magic_Resistance)) * damage;
 
-        Debug.Log(result_Damage + "계산후 데미지");
+        //Debug.Log(result_Damage + "계산후 데미지");
 
-        Debug.Log(this.name + " " + damage);
+        //Debug.Log(this.name + " " + damage);
 
         MP += 5; // 피격 시 마나 5획득
 
         Active_Skill();
+
+        foreach (ItemInfo item in itemList)
+        {
+            item.Item_Damaged_Act(this);
+        }
 
         return (attack_Type, result_Damage);
     }
@@ -162,6 +169,7 @@ public abstract class ChampionData : MonoBehaviour
 
         foreach (ItemInfo item in itemList)
         {
+            //item.Initialize();
             item.Add_Status(this);
             item.Item_Init(this);
         }
@@ -218,18 +226,23 @@ public abstract class ChampionData : MonoBehaviour
     public Animator animator;
     public virtual void Target_Check() // 타겟을 체크 해주는 함수.
     {
-        float distance = Vector3.Distance(cur_Target.transform.position, transform.position);
-
-        if (Mathf.Abs(distance) <= Attack_Range && !target_Set) // 사정거리 내 진입했다면
+        if (cur_Target != null)
         {
-            target_Set = true; // 타겟 지정
-            animator.SetBool("isAttack", true);
+            float distance = Vector3.Distance(cur_Target.transform.position, transform.position);
 
-        }
-        else if (Mathf.Abs(distance) > Attack_Range)
-        {
-            animator.SetBool("isAttack", false);
-            target_Set = false;
+            if (Mathf.Abs(distance) <= Attack_Range && !target_Set) // 사정거리 내 진입했다면
+            {
+                target_Set = true; // 타겟 지정
+                cur_Target.GetComponent<ChampionData>().targeted_Count++;
+                animator.SetBool("isAttack", true);
+
+            }
+            else if (Mathf.Abs(distance) > Attack_Range)
+            {
+                animator.SetBool("isAttack", false);
+                cur_Target.GetComponent<ChampionData>().targeted_Count--;
+                target_Set = false;
+            }
         }
     }
 
@@ -238,7 +251,7 @@ public abstract class ChampionData : MonoBehaviour
         if (target_Set)
             return;
 
-        if (this.gameObject.tag == "MyTeam")
+        if (this.gameObject.CompareTag("MyTeam"))
             cur_Target = Util.Instance.FindNearestObjectByTag("Enemy");
         else
             cur_Target = Util.Instance.FindNearestObjectByTag("MyTeam");

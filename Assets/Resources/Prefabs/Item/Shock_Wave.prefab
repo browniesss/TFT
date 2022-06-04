@@ -14,13 +14,15 @@ GameObject:
   - component: {fileID: 6241574200281194144}
   - component: {fileID: 8704584100410698852}
   - component: {fileID: 3904405643167607075}
+  - component: {fileID: 6241574199827375757}
+  - component: {fileID: 8362416826055736270}
   m_Layer: 0
   m_Name: Shock_Wave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6241574200281194149
 Transform:
   m_ObjectHideFlags: 0
@@ -4872,3 +4874,29 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &6241574199827375757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241574200281194145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f78597fd9162d4fbab7c40dddd03ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent_Vest: {fileID: 0}
+--- !u!114 &8362416826055736270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241574200281194145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b47ffdee0459e4c883eb74cde4fae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUsing: 0

@@ -65,7 +65,7 @@ public class Tile : MonoBehaviour
 
             data.cur_Tile.tile_Champion = null;
 
-            Debug.Log("이미있어" + GameManager.Instance.player.tileCount);
+            //Debug.Log("이미있어" + GameManager.Instance.player.tileCount);
         }
         else // 타일이 없던 경우
         {
@@ -75,7 +75,7 @@ public class Tile : MonoBehaviour
                 GameManager.Instance.player.tileCount++;
             }
 
-            Debug.Log("없었어" + GameManager.Instance.player.tileCount);
+            //Debug.Log("없었어" + GameManager.Instance.player.tileCount);
         }
 
         tile_Champion = data;

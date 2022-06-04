@@ -9,6 +9,7 @@ public class Statikk_Shiv : ItemInfo
 
     public override void Item_Attack_Act(ChampionData champ, bool attack_Type)
     {
+        //Debug.Log("스태틱 공격 카운트 :" + attack_Count);
         attack_Count++;
 
         if (attack_Count == 3) // 3번 기본공격을 했다면

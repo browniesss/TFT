@@ -28,11 +28,14 @@ public class Garen : ChampionData
 
         Item_UI_Position_Set();
 
-        if(Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetKeyDown(KeyCode.Backspace))
         {
             foreach (ItemInfo item in itemList)
                 item.Item_Battle_Init(this);
-        }    
+        }
+
+        foreach (ItemInfo item in itemList)
+            item.Item_Constant_Act(this);
     }
 
     public override void Attack()

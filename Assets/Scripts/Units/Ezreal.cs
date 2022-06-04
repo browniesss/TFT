@@ -45,6 +45,11 @@ public class Ezreal : ChampionData
         MP += 10;
 
         Active_Skill();
+
+        foreach (ItemInfo item in itemList)
+        {
+            item.Item_Attack_Act(this, true);
+        }
     }
 
     protected override void Active_Skill() // 스킬 발동

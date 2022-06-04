@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &973820822939964701
+--- !u!1 &6219843023640503017
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5887961471088178864}
-  - component: {fileID: 5539331599335055679}
+  - component: {fileID: 748964662801465668}
+  - component: {fileID: 433948938966059106}
   m_Layer: 0
-  m_Name: Bramble_Vest
+  m_Name: Solari
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5887961471088178864
+--- !u!4 &748964662801465668
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973820822939964701}
+  m_GameObject: {fileID: 6219843023640503017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.296698, y: 231.3, z: 5.856373}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,31 +31,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5539331599335055679
+--- !u!114 &433948938966059106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973820822939964701}
+  m_GameObject: {fileID: 6219843023640503017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7d9a286124c5024eac7fd014a472941, type: 3}
+  m_Script: {fileID: 11500000, guid: acfd9494d02309046914a3fcfec04a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item_Code: 27
-  item_Name: "\uAC00\uC2DC \uAC11\uC637"
+  item_Code: 29
+  item_Name: "\uAC15\uCCA0\uC758 \uC194\uB77C\uB9AC \uD39C\uB358\uD2B8"
   item_HP: 0
   item_MP: 0
   item_Damage: 0
-  item_AP: 0
+  item_AP: 10
   item_Attack_Delay: 0
-  item_Armor: 70
+  item_Armor: 20
   item_Magic_Resistance: 0
   item_Critical: 0
-  item_Material: {fileID: 2100000, guid: 759ffd029466f56429e48c8ac1b65278, type: 2}
-  item_Sprite: {fileID: 21300000, guid: dffbc8a81d049f941ade8e21ca6f054d, type: 3}
+  item_Material: {fileID: 2100000, guid: d371f2b5bf8ac6d4ba725cbdb8019b15, type: 2}
+  item_Sprite: {fileID: 21300000, guid: ca2a79663d2695541a7f2fd5eafcbc83, type: 3}
   is_Raw_Item: 0
-  isEquip: 1
+  isEquip: 0
   myChamp: {fileID: 0}
-  isCooldown: 0

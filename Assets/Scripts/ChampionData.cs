@@ -63,9 +63,12 @@ public abstract class ChampionData : MonoBehaviour
 
     [Header("Character State")]
     [SerializeField]
+    protected bool isBattle = true;
+    [SerializeField]
     protected bool target_Set; // true 라면 타겟에 붙어서 공격 중
     [SerializeField]
     protected bool isAttack; // 공격 중인지 여부
+    public bool isHealReduce; // 치감 당해있는지 여부
     public bool isStun; // CC기에 당해있는지 여부 
 
     [Header("Character Target")]
@@ -104,6 +107,17 @@ public abstract class ChampionData : MonoBehaviour
     }
 
     protected virtual void Active_Skill() { }
+
+    protected void Item_Constant_Eff()
+    {
+        if (!isBattle)
+            return;
+
+        foreach (ItemInfo item in itemList)
+        {
+            item.Item_Constant_Act(this);
+        }
+    }
 
     public abstract void Champ_Synergy_Init();
 

@@ -34,8 +34,7 @@ public class Garen : ChampionData
                 item.Item_Battle_Init(this);
         }
 
-        foreach (ItemInfo item in itemList)
-            item.Item_Constant_Act(this);
+        Item_Constant_Eff();
     }
 
     public override void Attack()

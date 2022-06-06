@@ -77,13 +77,17 @@ public abstract class ChampionData : MonoBehaviour
     public int targeted_Count;
     [Header("Current Tile")]
     public Tile cur_Tile; // 현재 타일
+    [Header("Recent Attacked Champion")]
+    public GameObject attacked_Champion;
 
     [Header("Synergy Using")]
     public bool twin_Shot_Check; // 쌍발총 연속 공격을 했는지 체크
 
-    public virtual (bool type, float damage) Damaged(float damage, bool attack_Type) // attack_Type = 물리, 마법피해인지 판별 true = 물리, false = 마법
+    public virtual (bool type, float damage) Damaged(float damage, bool attack_Type, GameObject attacked_Champ) // attack_Type = 물리, 마법피해인지 판별 true = 물리, false = 마법
     {
         float result_Damage = 0;
+
+        attacked_Champion = attacked_Champ;
 
         if (attack_Type) // 물리 피해일경우 
             result_Damage = (100.0f / (100 + Armor)) * damage;

@@ -7,7 +7,7 @@ using UnityEngine;
 1 bf대검 2 곡궁 3 쇠사슬 조끼 4 음전자 망토 5 쓸큰지 6 여눈 7 벨트 8 장갑 9 뒤집개
 10 죽음의 검 11 거인 학살자 12 수호천사 13 피바라기 14 마법공학 총검 15 쇼진의 창 16 지크의 전령 17 무한의 대검 18 제국 상징
 19 고속 연사포 20 거인의 결의 21 루난의 허리케인 22 구인수의 격노검 23 스태틱의 단검 24 즈롯 차원문 25 최후의 속삭임 26 도전자 상징
-27 가시갑옷 28 가고일 돌갑옷 29 솔라리 30 얼심 31 태불망
+27 가시갑옷 28 가고일 돌갑옷 29 솔라리 30 얼심 31 태불망 32 침장 33 범조 상징 34 용의 발톱
 
 */
 
@@ -60,17 +60,25 @@ public class ItemManager : Singleton<ItemManager>
         result_Item_Arr[8, 1] = result_Item_Save[16];
         #endregion
 
+        #region 갑옷조합
         result_Item_Arr[2, 2] = result_Item_Save[17];
 
         result_Item_Arr[2, 3] = result_Item_Save[18];
         result_Item_Arr[2, 4] = result_Item_Save[19];
         result_Item_Arr[2, 5] = result_Item_Save[20];
         result_Item_Arr[2, 6] = result_Item_Save[21];
+        result_Item_Arr[2, 7] = result_Item_Save[22];
+        result_Item_Arr[2, 8] = result_Item_Save[23];
 
         result_Item_Arr[3, 2] = result_Item_Save[18];
         result_Item_Arr[4, 2] = result_Item_Save[19];
         result_Item_Arr[5, 2] = result_Item_Save[20];
         result_Item_Arr[6, 2] = result_Item_Save[21];
+        result_Item_Arr[7, 2] = result_Item_Save[22];
+        result_Item_Arr[8, 2] = result_Item_Save[23];
+        #endregion
+
+        result_Item_Arr[3, 3] = result_Item_Save[24];
 
     }
 

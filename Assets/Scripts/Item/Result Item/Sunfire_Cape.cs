@@ -40,15 +40,11 @@ public class Sunfire_Cape : ItemInfo
                     Debug.Log("ÅÂºÒ¸Á¹ßµ¿Àü");
                     if (!save_Target.Contains(obj))
                     {
-                        Debug.Log("ÅÂºÒ¸Á¹ßµ¿");
                         champion_Data.isHealReduce = true;
 
                         GameObject prefab_flame = Resources.Load("Prefabs/Bullets/Flame_Particle") as GameObject;
-                        Debug.Log("ÅÂºÒ¸ÁÇÁ¸®ÆÕ·Îµå");
                         GameObject flame = GameObject.Instantiate(prefab_flame, obj.transform);
-                        Debug.Log("ÅÂºÒ¸ÁÇÁ¸®ÆÕ»ý¼º" + flame.transform.position + "<ÁÂÇ¥");
                         flame.GetComponent<Flame_Particle>().target_Champ = obj.gameObject;
-                        Debug.Log("ÅÂºÒ¸ÁÅ¸°Ù¼³Á¤");
 
                         save_Target.Add(obj);
 

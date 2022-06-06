@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2829209339629935949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8896535357417242336}
+  - component: {fileID: 7534287969759317389}
+  m_Layer: 0
+  m_Name: Shroud
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8896535357417242336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829209339629935949}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.296698, y: 231.3, z: 5.856373}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7534287969759317389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829209339629935949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68af398a56f9b84419a445abcd9d5b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item_Code: 32
+  item_Name: "\uCE68\uBB35\uC758 \uC7A5\uB9C9"
+  item_HP: 0
+  item_MP: 0
+  item_Damage: 0
+  item_AP: 0
+  item_Attack_Delay: 0
+  item_Armor: 20
+  item_Magic_Resistance: 0
+  item_Critical: 0
+  item_Material: {fileID: 2100000, guid: 602f3cbe2ff2d7f4e91ea3d1b4a602a3, type: 2}
+  item_Sprite: {fileID: 21300000, guid: 4e0a25a26f6b91a4785a14bec7ea85b6, type: 3}
+  is_Raw_Item: 0
+  isEquip: 0
+  myChamp: {fileID: 0}
